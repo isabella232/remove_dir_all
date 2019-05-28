@@ -168,7 +168,7 @@ fn rename(file: &File, new: &Path, replace: bool) -> io::Result<()> {
     use std::iter;
     #[cfg(target_arch = "x86")]
     const STRUCT_SIZE: usize = 12;
-    #[cfg(target_arch = "x86_64")]
+    #[cfg(any(target_arch = "x86_64", target_arch = "aarch64"))]
     const STRUCT_SIZE: usize = 20;
 
     // FIXME: check for internal NULs in 'new'
